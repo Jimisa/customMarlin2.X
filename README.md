@@ -87,3 +87,150 @@ Regular users can open and close their own issues, but only the administrators c
 Marlin is published under the [GPL license](/LICENSE) because we believe in open development. The GPL comes with both rights and obligations. Whether you use Marlin firmware as the driver for your open or closed-source product, you must keep Marlin open, and you must provide your compatible Marlin source code to end users upon request. The most straightforward way to comply with the Marlin license is to make a fork of Marlin on Github, perform your modifications, and direct users to your modified fork.
 
 While we can't prevent the use of this code in products (3D printers, CNC, etc.) that are closed source or crippled by a patent, we would prefer that you choose another firmware or, better yet, make your own.
+
+## Custom changes for Artillery Sidewinder X1 GEN L V2.1 board
+
+### configuration.h
+
+No jerk classic (junction deviation)
+No BL TOUCH
+No MBL
+No Babystepping
+
+l497    : #define TEMP_SENSOR_BED 1
+
+l558    : #define HEATER_0_MAXTEMP 285
+
+l566    : #define BED_MAXTEMP      120
+
+l603-5  : Changed head Kp Ki Kd // M303 E0 C8 S200 (8cycles-200°) to tune and M301 E0 P.. I.. D.. to set values
+
+l644-6  : changed DEFAULT Bed Kp Ki Kd // M303 E-1 C8 S60 (8cycles-60°) to tune and M304 P.. I.. D.. to set values
+
+l720    : #define EXTRUDE_MAXLENGTH 300
+
+l832-4  : #define *_MIN_ENDSTOP_INVERTING true // M119 to test (should be "open" whan not contacting)
+
+l864-75 : #define #_DRIVER_TYPE TMC2209
+
+l869    : #define Z2_DRIVER_TYPE TMC2209
+
+l930    : #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.121, 80.121, 399.778, 445 } //M92 E... X... Y... Z... to override
+
+l937    : #define DEFAULT_MAX_FEEDRATE          { 300, 300, 50, 40 }
+ // M203 X... Y.. Z... E.. to override
+
+l939    : #define LIMITED_MAX_FR_EDITING
+
+l941    : #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 50, 60 }
+
+l950    : #define DEFAULT_MAX_ACCELERATION      { 3000, 2000, 100, 10000} // M201 X.. Y.. Z.. E.. to override
+
+L962    : #define LIMITED_MAX_ACCEL_EDITING
+
+l965    : #define DEFAULT_ACCELERATION          800 // M204 P...
+
+l966    : #define DEFAULT_RETRACT_ACCELERATION  10000 // M204 R..
+
+l967    : #define DEFAULT_TRAVEL_ACCELERATION   2000 // M204 T.. to override
+
+l979-80 : #define DEFAULT_*JERK 8.0
+
+l1004   : #define JUNCTION_DEVIATION_MM 0.02 // (0.013) M205 J.. to override
+
+l1333   : #define INVERT_X_DIR true // TMC 2209
+
+l1343   : #define INVERT_E0_DIR true // TMC2209
+
+l1381   : #define X_BED_SIZE 305
+
+l1382   : #define Y_BED_SIZE 305
+
+l1385   : #define X_MIN_POS -2
+
+l1386   : #define Y_MIN_POS -5
+
+l1390   : #define Z_MAX_POS 400
+
+l1834   : #define EEPROM_SETTINGS     // Persistent storage with M500 and M501, M502 to restore factory settings
+
+l1869-70: #define PREHEAT_1_TEMP_HOTEND 190
+
+l2900   : #define RGB_LED
+
+l2904   : #define RGB_LED_R_PIN 5
+
+l2905   : #define RGB_LED_G_PIN 4
+
+l2906   : #define RGB_LED_B_PIN 6
+
+l2907   : #define RGB_LED_W_PIN -1
+
+### configuration_adv.h
+
+l608    : #define E0_AUTO_FAN_PIN 7
+
+l750    : #define NUM_Z_STEPPER_DRIVERS 2
+
+l1992   : #define LIN_ADVANCE
+
+l1995   : #define LIN_ADVANCE_K 0.10
+
+l1998   : #define ALLOW_LOW_EJERK
+
+l2307   : #define EMERGENCY_PARSER
+
+l2707   : define Y_CURRENT       850
+
+l2727   : #define Z_CURRENT       700
+
+l2737   : #define Z2_CURRENT      700
+
+l2797   : #define E0_CURRENT      660
+
+l2969   : #define CHOPPER_TIMING CHOPPER_DEFAULT_24V
+
+l3104   : #define TMC_DEBUG
+
+### pins/ramps/pins_RAMPS.h
+
+change -1 in:
+
+```cplusplus
+#ifndef Z2_SERIAL_TX_PIN
+  #define Z2_SERIAL_TX_PIN                    20
+#endif
+#ifndef Z2_SERIAL_RX_PIN
+  #define Z2_SERIAL_RX_PIN                    12
+#endif
+```
+
+l159 :
+
+```cplusplus
+#ifndef Z2_STEP_PIN
+  #define Z2_STEP_PIN                         36
+#endif
+#ifndef Z2_DIR_PIN
+  #define Z2_DIR_PIN                          34
+#endif
+#ifndef Z2_ENABLE_PIN
+  #define Z2_ENABLE_PIN                       30
+#endif
+#ifndef Z2_CS_PIN
+  #define Z2_CS_PIN                           44
+#endif
+```
+
+### pins/ramps/pins_MKS_GEN_L_v21.h
+
+Comment :
+
+```cplusplus
+// #ifndef E1_SERIAL_TX_PIN
+//   #define E1_SERIAL_TX_PIN                    20
+// #endif
+// #ifndef E1_SERIAL_RX_PIN
+//   #define E1_SERIAL_RX_PIN                    12
+// #endif
+```
