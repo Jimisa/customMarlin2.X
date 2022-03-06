@@ -156,6 +156,10 @@ l1834   : #define EEPROM_SETTINGS     // Persistent storage with M500 and M501, 
 
 l1869-70: #define PREHEAT_1_TEMP_HOTEND 190
 
+l1891   : #define NOZZLE_PARK_FEATURE
+
+l1898   : #define NOZZLE_PARK_Z_RAISE_MIN   20
+
 l2900   : #define RGB_LED
 
 l2904   : #define RGB_LED_R_PIN 5
@@ -180,7 +184,19 @@ l1998   : #define ALLOW_LOW_EJERK
 
 l2307   : #define EMERGENCY_PARSER
 
-l2707   : define Y_CURRENT       850
+l2485   : #define ADVANCED_PAUSE_FEATURE
+
+l2492   : #define FILAMENT_CHANGE_UNLOAD_LENGTH 65
+
+l2501   : #define FILAMENT_CHANGE_FAST_LOAD_LENGTH    65
+
+l2525   : #define PARK_HEAD_ON_PAUSE
+
+l2528   : #define FILAMENT_LOAD_UNLOAD_GCODES
+
+l2529   : #define FILAMENT_UNLOAD_ALL_EXTRUDERS
+
+l2707   : #define Y_CURRENT       850
 
 l2727   : #define Z_CURRENT       700
 
