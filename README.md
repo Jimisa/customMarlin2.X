@@ -124,7 +124,7 @@ l939    : #define LIMITED_MAX_FR_EDITING
 
 l941    : #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 50, 60 }
 
-l950    : #define DEFAULT_MAX_ACCELERATION      { 3000, 2000, 100, 10000} // M201 X.. Y.. Z.. E.. to override
+l950    : #define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 100, 10000} // M201 X.. Y.. Z.. E.. to override
 
 L962    : #define LIMITED_MAX_ACCEL_EDITING
 
@@ -152,7 +152,7 @@ l1386   : #define Y_MIN_POS -5
 
 l1390   : #define Z_MAX_POS 400
 
-l1757   : #define HOMING_FEEDRATE_MM_M { (80*60), (80*60), (15*60) }
+l1757   : #define HOMING_FEEDRATE_MM_M { (80*60), (80*60), (12*60) }
 
 l1834   : #define EEPROM_SETTINGS     // Persistent storage with M500 and M501, M502 to restore factory settings
 
@@ -252,31 +252,3 @@ Comment :
 //   #define E1_SERIAL_RX_PIN                    12
 // #endif
 ```
-
-### For ABL
-
-l1090   : #define BLTOUCH
-
-l1182   : #define NOZZLE_TO_PROBE_OFFSET { -52, -27, -2.45 } // M851 X.. Y.. Z.. to override
-
-l1186   : #define PROBING_MARGIN 15
-
-l1548   : #define AUTO_BED_LEVELING_BILINEAR
-
-l1749   : #define Z_SAFE_HOMING
-
-configuration_adv.h
-
-l931    : #define Z_STEPPER_AUTO_ALIGN
-
-l1945   : #define BABYSTEPPING
-
-l1949   : #define BABYSTEP_ALWAYS_AVAILABLE
-
-l1952   :   #define BABYSTEP_MILLIMETER_UNITS
-            #define BABYSTEP_MULTIPLICATOR_Z  0.05
-            #define BABYSTEP_MULTIPLICATOR_XY 0.05
-
-l1966   : #define BABYSTEP_DISPLAY_TOTAL
-
-l1968   : #define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
