@@ -117,18 +117,18 @@ l869    : #define Z2_DRIVER_TYPE TMC2209
 
 l930    : #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.121, 80.121, 399.778, 445 } //M92 E... X... Y... Z... to override
 
-l937    : #define DEFAULT_MAX_FEEDRATE          { 300, 300, 50, 40 }
+l937    : #define DEFAULT_MAX_FEEDRATE          { 300, 300, 50, 60 }
  // M203 X... Y.. Z... E.. to override
 
 l939    : #define LIMITED_MAX_FR_EDITING
 
-l941    : #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 50, 60 }
+l941    : #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 50, 70 }
 
 l950    : #define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 100, 10000} // M201 X.. Y.. Z.. E.. to override
 
 L962    : #define LIMITED_MAX_ACCEL_EDITING
 
-l965    : #define DEFAULT_ACCELERATION          800 // M204 P...
+l965    : #define DEFAULT_ACCELERATION          600 // M204 P...
 
 l966    : #define DEFAULT_RETRACT_ACCELERATION  10000 // M204 R..
 
@@ -136,7 +136,7 @@ l967    : #define DEFAULT_TRAVEL_ACCELERATION   2000 // M204 T.. to override
 
 l979-80 : #define DEFAULT_*JERK 8.0
 
-l1004   : #define JUNCTION_DEVIATION_MM 0.02 // (0.013) M205 J.. to override
+l1004   : #define JUNCTION_DEVIATION_MM 0.1 // (0.013) M205 J.. to override
 
 l1333   : #define INVERT_X_DIR true // TMC 2209
 
