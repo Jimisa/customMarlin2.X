@@ -152,6 +152,8 @@ l1386   : #define Y_MIN_POS -5
 
 l1390   : #define Z_MAX_POS 400
 
+l1558   : #define ENABLE_LEVELING_AFTER_G28
+
 l1757   : #define HOMING_FEEDRATE_MM_M { (80*60), (80*60), (12*60) }
 
 l1834   : #define EEPROM_SETTINGS     // Persistent storage with M500 and M501, M502 to restore factory settings
@@ -252,3 +254,34 @@ Comment :
 //   #define E1_SERIAL_RX_PIN                    12
 // #endif
 ```
+
+### ABL
+
+#### configuration.h
+
+l1090   : #define BLTOUCH
+
+l1182   : #define NOZZLE_TO_PROBE_OFFSET { -52, -27, -2.54 }
+
+l1186   : #define PROBING_MARGIN 20
+
+l1548   : #define AUTO_BED_LEVELING_BILINEAR
+
+l1615   : #define GRID_MAX_POINTS_X 5
+
+l1749   : #define Z_SAFE_HOMING
+
+#### configuration_adv.h
+
+l1945   : #define BABYSTEPPING
+
+l1952   : #define BABYSTEP_MILLIMETER_UNITS 
+
+l1953   : #define BABYSTEP_MULTIPLICATOR_Z  0.1
+
+l1954   : #define BABYSTEP_MULTIPLICATOR_XY 0.1
+
+l1966   : #define BABYSTEP_DISPLAY_TOTAL
+
+l1968   :  #define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
+
