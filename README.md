@@ -273,6 +273,8 @@ l1749   : #define Z_SAFE_HOMING
 
 #### configuration_adv.h
 
+l931    : #define Z_STEPPER_AUTO_ALIGN
+
 l1945   : #define BABYSTEPPING
 
 l1952   : #define BABYSTEP_MILLIMETER_UNITS 
@@ -285,3 +287,27 @@ l1966   : #define BABYSTEP_DISPLAY_TOTAL
 
 l1968   :  #define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
 
+### Activating options for TFT
+
+#### configuration.h
+
+l1272   : #define Z_MIN_PROBE_REPEATABILITY_TEST
+
+l1599   : #define G26_MESH_VALIDATION
+
+
+#### configuration_adv.h
+
+l2343   : #define SERIAL_FLOAT_PRECISION 4
+
+l3735   : #define M115_GEOMETRY_REPORT
+
+l3783   : #define M114_DETAIL
+
+l3784   : #define M114_REALTIME
+
+l3787   : #define REPORT_FAN_CHANGE
+
+l3959   : #define HOST_ACTION_COMMANDS
+
+l3962   : #define HOST_PROMPT_SUPPORT
